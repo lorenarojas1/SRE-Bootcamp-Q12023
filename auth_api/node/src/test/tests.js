@@ -1,6 +1,6 @@
 import chai from 'chai';
-import { loginFunction } from '../services/login'
-import { protectFunction } from '../services/protected'
+import { loginFunction } from '../../services/login'
+import { protectFunction } from '../../services/protected'
 
 const expect = chai.expect;
 

@@ -1,12 +1,14 @@
-import { loginFunction } from '../services/login';
+const loginFunction = require('../services/login');
 
-export const login = (req, res, next) => {
+const login = (req, res, next) => {
   let username = req.body.username;
   let password = req.body.password;
  
   let response = {
     "data": loginFunction(username, password)
   };
-  res.send(response);
+  res.send(response, 'login');
   next();
 }
+
+module.exports = login
