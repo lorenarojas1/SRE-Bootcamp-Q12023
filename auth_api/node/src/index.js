@@ -1,8 +1,8 @@
-import Config from 'config';
-import app from './server';
+const Config = require('config');
+const app = require('./server');
 
 let config = Config;
 
- app.listen(config.port, function() {
+app.listen(config.port, function() {
   console.log('listening at',config.port);
 });
