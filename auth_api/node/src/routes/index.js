@@ -5,11 +5,11 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.send('index')
+  res.render('index')
 });
 
   router.get('/login', (req, res) => {
-    res.send('login')
+    res.render('login')
   });
   router.get('/protected', (req, res) => {
     res.send('protected')
