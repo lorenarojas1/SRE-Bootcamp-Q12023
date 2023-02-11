@@ -1,38 +1,30 @@
 {
-  "name": "sre-bootcamp-api-js",
+  "name": "sre-bootcamp-api",
   "version": "1.0.0",
-  "description": "API for SRE Bootcamp",
+  "description": "Technical Challenge",
   "main": "server.js",
   "scripts": {
-    "test": "mocha --require babel-core/register",
-    "start": "NODE_ENV=production babel-node index.js",
-    "dev": "nodemon --exec babel-node ./index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wizeline/wize-devops.git"
+    "url": "git+https://github.com/lorenarojas1/SRE-Bootcamp-Q12023.git"
   },
-  "author": "Clemente Estrada",
+  "author": "Lorena Rojas",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wizeline/wize-devops/issues"
+    "url": "https://github.com/lorenarojas1/SRE-Bootcamp-Q12023/issues"
   },
-  "engines": {
-    "node": "^18.13.0"
-  },
-  "homepage": "https://github.com/wizeline/wize-devops#readme",
+  "homepage": "https://github.com/lorenarojas1/SRE-Bootcamp-Q12023#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "config": "^1.30.0",
-    "express": "^4.17.1",
-    "restify": "^7.1.1"
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.0",
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "chai": "^4.1.2",
-    "mocha": "^4.0.1",
-    "nodemon": "^1.17.3",
-    "supertest": "^3.0.0"
+    "nodemon": "^2.0.20"
   }
 }
