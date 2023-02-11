@@ -1,3 +1,5 @@
-export const protectFunction = (authorization) => {
+const protectFunction = (authorization) => {
   return 'test';
 }
+
+module.exports = protectFunction;

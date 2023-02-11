@@ -1,6 +1,7 @@
-import { protectFunction } from '../services/protected';
+const protectFunction = require('../services/protected');
 
-export const protect = (req, res, next) => {
+
+const protect = (req, res, next) => {
   let authorization = req.headers.authorization;
   let response = {
     "data": protectFunction(authorization)
@@ -8,3 +9,5 @@ export const protect = (req, res, next) => {
   res.send(response);
   next();
 }
+
+module.exports = protect;

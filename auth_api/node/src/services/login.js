@@ -1,3 +1,5 @@
-export const loginFunction = (username, password) => {
+const loginFunction = (username, password) => {
   return 'test';
 }
+
+module.exports = loginFunction;
