@@ -1,8 +1,8 @@
-const Config = require('config');
+const Config = require('./config/default.json');
 const app = require('./server');
 
-let config = Config;
+const config = Config;
 
-app.listen(config.port, function() {
-  console.log('listening at',config.port);
+app.listen(config.port, () => {
+  console.log('listening at', config.port);
 });
