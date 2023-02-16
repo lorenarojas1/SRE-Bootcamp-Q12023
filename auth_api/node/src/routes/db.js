@@ -8,12 +8,12 @@ const connectionDb = mysql.createConnection({
   port: 3306,
 });
 
-connectionDb.connect((err) => {
+connectionDb.connect((err, res) => {
   if (err) {
     console.error(`Error de conexion: ${err.stack}`);
     return;
   }
-  console.log('Conectado a la base de datos ');
+  console.log(`Conectado a la base de datos ${res}`);
 });
 
 module.exports = connectionDb;

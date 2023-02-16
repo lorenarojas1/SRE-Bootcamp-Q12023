@@ -11,4 +11,5 @@ exports.init = (app) => {
   });
   app.post('/login', loginController.login);
   app.get('/health', healthController.health);
+  app.get('/protected', protect.protect);
 };

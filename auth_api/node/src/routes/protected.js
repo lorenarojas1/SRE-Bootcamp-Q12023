@@ -1,13 +1,34 @@
-const protectFunction = require('../services/protected');
+const { protectFunction } = require('../services/protected');
 
+const protect = async (req, res, next) => {
+  try {
+    const { authorization } = req.headers;
 
-const protect = (req, res, next) => {
-  let authorization = req.headers.authorization;
-  let response = {
-    "data": protectFunction(authorization)
-  };
-  res.send(response);
-  next();
-}
+    const tokenArray = authorization.split(' ');
 
-module.exports = protect;
+    if (tokenArray.length === 0) {
+      res.status(500).send('Error no token');
+      next();
+      return;
+    }
+
+    const protectedResponse = await protectFunction(tokenArray[1]);
+
+    if (protectedResponse) {
+      res.status(200).send({ data: protectedResponse.data });
+      next();
+      return;
+    }
+
+    res.status(500).send({ data: protectedResponse.data });
+    next();
+    return;
+  } catch (error) {
+    res.status(500).send({ data: error });
+    next();
+  }
+};
+
+module.exports = {
+  protect,
+};

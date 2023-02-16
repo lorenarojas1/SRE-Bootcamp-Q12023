@@ -9,10 +9,10 @@ exports.login = (req, res) => {
     console.log(`${username} - ${password}`);
 
     if (!username || !password) {
-      res.render('login', {
+      res.status(401).render('login', {
         alert: true,
         alertTitle: 'Warnming',
-        alertMessage: 'Add a username and password',
+        alertMessage: `Add a username and password Error: ${res.statusCode} - Unauthorized `,
         alertIcon: 'info',
         showConfirmButton: true,
         timer: false,
@@ -21,10 +21,10 @@ exports.login = (req, res) => {
     } else {
       connectionDb.query('SELECT * FROM users WHERE username = ?', [username], async (error, results) => {
         if (results.length === 0) {
-          res.render('login', {
+          res.status(403).render('login', {
             alert: true,
             alertTitle: 'Warnming',
-            alertMessage: 'Username or/and password incorrect',
+            alertMessage: `Username or/and password incorrect ${res.statusCode} - Forbidden `,
             alertIcon: 'info',
             showConfirmButton: true,
             timer: false,
@@ -35,10 +35,11 @@ exports.login = (req, res) => {
           const hash = crypto.createHash('sha512');
           const data = hash.update(passwordwithSalt, 'uft-8');
           const generatedHash = data.digest('hex');
+          console.log(generatedHash);
 
           if (generatedHash === results[0].password) {
             const { id } = results[0].role;
-            const token = jwt.sign({ id }, 'y2w7wjd7yXF64FIADfJxNs1oupTGAuW', {
+            const token = jwt.sign({ id }, 'my2w7wjd7yXF64FIADfJxNs1oupTGAuW', {
               expiresIn: '7d',
             });
             console.log(`TOKEN: ${token} User: ${username}`);
@@ -57,11 +58,29 @@ exports.login = (req, res) => {
               timer: 800,
               ruta: 'health',
             });
+          } else {
+            res.status(403).render('login', {
+              alert: true,
+              alertTitle: 'Warnming',
+              alertMessage: `Username or/and password incorrect ${res.statusCode} - Forbidden `,
+              alertIcon: 'info',
+              showConfirmButton: true,
+              timer: false,
+              ruta: 'login',
+            });
           }
         }
       });
     }
   } catch (error) {
-    console.log(error);
+    res.status(403).render('login', {
+      alert: true,
+      alertTitle: 'Warnming',
+      alertMessage: `Username or/and password incorrect ${res.statusCode} - Forbidden `,
+      alertIcon: 'info',
+      showConfirmButton: true,
+      timer: false,
+      ruta: 'login',
+    });
   }
 };
