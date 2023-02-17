@@ -6,13 +6,7 @@ services:
     container_name: nodejs
     restart: unless-stopped
     env_file: .env
-    environment:
-      - DB_USERNAME=secret
-      - DB_PASSWORD=jOdznoyH6swQB9sTGdLUeeSrtejWkcw
-      - DB_HOSTNAME=sre-bootcamp-selection-challenge.cabf3yhjqvmq.us-east-1.rds.amazonaws.com
-      - DB_PORT=3306
-      - DB_DATABASE=bootcamp_tht
     ports:
-      - "80:8080"
+      - "8000:8000"
     volumes:
       - .:/app

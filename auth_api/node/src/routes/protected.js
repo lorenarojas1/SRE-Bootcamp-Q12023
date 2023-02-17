@@ -1,8 +1,9 @@
-const { protectFunction } = require('../services/protected');
+import protectFunction from '../services/protected';
 
-const protect = async (req, res, next) => {
+exports.protect = async (req, res, next) => {
   try {
     const { authorization } = req.headers;
+    console.log(authorization);
 
     const tokenArray = authorization.split(' ');
 
@@ -29,6 +30,3 @@ const protect = async (req, res, next) => {
   }
 };
 
-module.exports = {
-  protect,
-};

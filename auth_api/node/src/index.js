@@ -1,8 +1,6 @@
-const Config = require('./config/default.json');
-const app = require('./server');
+import { config } from './config';
+import app from './server';
 
-const config = Config;
-
-app.listen(config.port, () => {
-  console.log('listening at', config.port);
+app.listen(config.APP_PORT, () => {
+  console.log('listening at', config.APP_PORT);
 });

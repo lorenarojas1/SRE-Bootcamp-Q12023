@@ -1,6 +1,6 @@
-const loginController = require('./login');
-const protect = require('./protected');
-const healthController = require('../services/health');
+import login from './login';
+import protect from './protected';
+import  health from '../services/health';
 
 exports.init = (app) => {
   app.get('/login', (req, res) => {
@@ -9,7 +9,7 @@ exports.init = (app) => {
   app.get('/protected', (req, res) => {
     res.send('protected');
   });
-  app.post('/login', loginController.login);
-  app.get('/health', healthController.health);
-  app.get('/protected', protect.protect);
+  app.post('/login', login);
+  app.get('/health', health);
+  app.get('/protected', protect);
 };

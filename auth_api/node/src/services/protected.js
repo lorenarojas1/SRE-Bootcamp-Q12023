@@ -1,6 +1,6 @@
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
 
-const protectFunction = (authorization) => {
+exports.protectFunction = (authorization) => {
   try {
     const decoded = jwt.verify(authorization, 'my2w7wjd7yXF64FIADfJxNs1oupTGAuW');
 
@@ -14,4 +14,3 @@ const protectFunction = (authorization) => {
   }
 };
 
-module.exports = protectFunction;
