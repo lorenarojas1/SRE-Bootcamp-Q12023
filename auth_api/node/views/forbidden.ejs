@@ -1,17 +1,16 @@
-
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-100">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.108.0">
-    <title>Technical Challenge wizeline</title>
+    <title>Cover Template · Bootstrap v5.3</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/cover/">
 
-<link type="text/css" href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -68,40 +67,35 @@
 
     
     <!-- Custom styles for this template -->
-    <link type="text/css" href="/css/sign-in.css" rel="stylesheet">
+    <link href="css/cover.css" rel="stylesheet">
   </head>
-  <body class="text-center">
+  <body class="d-flex h-100 text-center text-bg-dark">
     
-<main class="form-signin w-100 m-auto">
-  <form id="formLogin" action="/login" method="POST" >
-    <img class="mb-4" src="/css/img/logo.svg" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Please login</h1>
-
-    <div class="form-floating">
-      <input type="text" class="form-control" id="username" name="username" placeholder="Username">
-      <label for="username">Username</label>
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">Academy Wizeline</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="/health">Dash</a>
+        <a class="nav-link fw-bold py-1 px-0" href="#">Features</a>
+        <a class="nav-link fw-bold py-1 px-0" href="#">Contact</a>
+        <a class="nav-link fw-bold py-1 px-0" href="/login">Sign out</a>
+      </nav>
     </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-      <label for="password">Password</label>
-    </div>
+  </header>
 
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
-  </form>
-</main>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <% if( alert) { %>
-    <script>
-    Swal.fire({
-      title: '<%= alertTitle %>',
-      text: '<%= alertMessage %>',
-      icon: '<%= alertIcon %>',
-      showConfimButton: <%= showConfirmButton %>,
-      timer: <%= timer %>,
-    }).then(() => {
-      window.location = '/<%= ruta %>'
-    })
-    </script>
-  <% } %>
+  <main class="px-3">
+    <h1>403 - Forbidden.</h1>
+    <p class="lead">You don´t have permission to access this resource.</p>
+    <p class="lead">
+      <a href="/health" class="btn btn-lg btn-light fw-bold border-white bg-white">Come Back!</a>
+    </p>
+  </main>
+
+  <footer class="mt-auto text-white-50">
+    <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by Lorena Rojas.</p>
+  </footer>
+</div>
+
   </body>
 </html>

@@ -63,6 +63,12 @@
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
       }
+
+      .nav-protected {
+        color: red;
+        font-weight: bolder;
+        text-decoration: none;
+      }
     </style>
 
     <!-- Custom styles for this template -->
@@ -92,6 +98,12 @@
             <a class="nav-link active" aria-current="page" href="#">
               <span data-feather="home" class="align-text-bottom"></span>
               Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-protected px-3 protected-dashboard" href="/protected">
+              <span data-feather="layers" class="align-text-bottom"></span>
+              Protected Dashboard
             </a>
           </li>
           <li class="nav-item">
@@ -175,9 +187,7 @@
           </button>
         </div>
       </div>
-      <div>
-        <a class="nav-link px-3" href="/protected">protected</a>
-      </div>
+
     </main>
   </div>
 </div>
