@@ -1,38 +1,43 @@
 {
-  "name": "sre-bootcamp-api-js",
+  "name": "sre-bootcamp-api",
   "version": "1.0.0",
-  "description": "API for SRE Bootcamp",
+  "description": "Technical Challenge",
   "main": "server.js",
   "scripts": {
-    "test": "mocha --require babel-core/register",
-    "start": "NODE_ENV=production babel-node index.js",
-    "dev": "nodemon --exec babel-node ./index.js"
+    "test": "jest --watch-all=true",
+    "build": "babel src --out-dir build",
+    "start": "nodemon --exec babel-node ./src/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wizeline/wize-devops.git"
+    "url": "git+https://github.com/lorenarojas1/SRE-Bootcamp-Q12023.git"
   },
-  "author": "Clemente Estrada",
+  "author": "Lorena Rojas",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wizeline/wize-devops/issues"
+    "url": "https://github.com/lorenarojas1/SRE-Bootcamp-Q12023/issues"
   },
-  "engines": {
-    "node": "^18.13.0"
-  },
-  "homepage": "https://github.com/wizeline/wize-devops#readme",
+  "homepage": "https://github.com/lorenarojas1/SRE-Bootcamp-Q12023#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "config": "^1.30.0",
-    "express": "^4.17.1",
-    "restify": "^7.1.1"
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.1",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jest": "^29.4.3",
+    "jsonwebtoken": "^9.0.0",
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "chai": "^4.1.2",
-    "mocha": "^4.0.1",
-    "nodemon": "^1.17.3",
-    "supertest": "^3.0.0"
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/node": "^7.20.7",
+    "@babel/preset-env": "^7.20.2",
+    "chai": "^4.3.7",
+    "eslint": "^8.34.0",
+    "eslint-plugin-jest": "^27.2.1",
+    "nodemon": "^2.0.20"
   }
 }
