@@ -11,15 +11,13 @@ const initDb = () => {
   };
   const connectionDb = mysql.createConnection(dbParams);
 
-  connectionDb.connect((err, res) => {
+  connectionDb.connect((err) => {
     if (err) {
       console.error(`Error de conexion: ${err.stack}`);
       return;
     }
-    console.log(`Conectado a la base de datos ${res}`);
+    console.log(`Conectado a la base de datos `);
   });
   return connectionDb;
 };
-const db = initDb();
-
-module.exports = db;
+export const db = initDb();

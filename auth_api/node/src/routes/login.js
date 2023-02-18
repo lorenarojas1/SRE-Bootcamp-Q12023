@@ -1,8 +1,9 @@
-import loginFunction from '../services/login';
+import { loginFunction } from '../services/login';
 import { config } from '../config';
 
-exports.login = (req, res) => {
+export const login = (req, res) => {
   try {
+    console.log(req.body);
     const { username, password } = req.body;
 
     if (!username || !password) {
@@ -19,7 +20,9 @@ exports.login = (req, res) => {
       loginFunction(username, password)
         .then(({ token }) => {
           const cookiesOptions = {
-            expires: new Date(Date.now() + config.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000),
+            expires: new Date(
+              Date.now() + config.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000
+            ),
             httpOnly: true,
           };
           res.cookie('jwt', token, cookiesOptions);

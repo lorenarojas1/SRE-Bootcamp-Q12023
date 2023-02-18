@@ -1,16 +1,13 @@
 import jwt from 'jsonwebtoken';
+import { config } from '../config';
 
-exports.protectFunction = (authorization) => {
-  try {
-    const decoded = jwt.verify(authorization, 'my2w7wjd7yXF64FIADfJxNs1oupTGAuW');
-
-    if (decoded) {
-      return { success: true, data: 'You are under protected data' };
-    }
-
-    return { success: false, data: 'Error token not valid' };
-  } catch (error) {
-    return { success: false, data: 'Error token not valid' };
-  }
+export const protectFunction = (token) => {
+  return new Promise((ok, reject) => {
+    jwt.verify(token, config.JWT_SECRET, (err, user) => {
+      if (err) {
+        return reject(new Error('invalid token'));
+      }
+      ok(user);
+    });
+  });
 };
-

@@ -4,9 +4,9 @@
   "description": "Technical Challenge",
   "main": "server.js",
   "scripts": {
-    "test": "jest",
-    "build": "babel src/index.js --out-dir build",
-    "start": "npm run build && nodemon build/index.js"
+    "test": "jest --watch-all=true",
+    "build": "babel src --out-dir build",
+    "start": "nodemon --exec babel-node ./src/index.js"
   },
   "repository": {
     "type": "git",

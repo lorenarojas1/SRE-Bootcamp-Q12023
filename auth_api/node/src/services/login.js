@@ -1,33 +1,27 @@
-import { config } from '../config';
-import jwt from 'jsonwebtoken';
-import db from '../routes/db';
 import * as crypto from 'crypto';
+import jwt from 'jsonwebtoken';
+import { config } from '../config';
+import { findUserByUsername } from '../db/db';
 
-exports.loginFunction = (username, password) => {
-  const query = 'SELECT * FROM users WHERE username = ?';
+export const loginFunction = (username, password) => {
   return new Promise((ok, reject) => {
-    db.query(query, [username], (error, results) => {
-      if (results.length === 0) {
-        reject(new Error('403'));
-      } else {
-        const passwordwithSalt = `${password}${results[0].salt}`;
+    findUserByUsername(username)
+      .then((user) => {
+        const passwordwithSalt = `${password}${user.salt}`;
         const hash = crypto.createHash('sha512');
         const data = hash.update(passwordwithSalt, 'uft-8');
         const generatedHash = data.digest('hex');
-        console.log(generatedHash);
+        console.log(user);
 
-        if (generatedHash === results[0].password) {
-          const { id } = results[0].role;
-          const token = jwt.sign({ id }, config.JWT_SECRET, {
-            expiresIn: config.JWT_TIME_EXPIRES,
-          });
-          console.log(`TOKEN: ${token} User: ${username}`);
-
+        if (generatedHash === user.password) {
+          const { role } = user;
+          const token = jwt.sign({ role }, config.JWT_SECRET, {});
           ok({ token });
-        } else {
-          reject(new Error('403'));
         }
-      }
-    });
+      })
+      .catch((error) => {
+        console.log(error);
+        reject(new Error('403'));
+      });
   });
 };

@@ -1,4 +1,4 @@
-exports.health = (req, res, next) => {
+export const health = (req, res, next) => {
   res.render('health');
   next();
 };

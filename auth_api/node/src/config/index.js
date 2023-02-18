@@ -1,8 +1,8 @@
+/* eslint-disable no-undef */
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-// eslint-disable-next-line import/prefer-default-export
 export const config = {
   APP_PORT: process.env.APP_PORT,
   DB_USERNAME: process.env.DB_USERNAME,

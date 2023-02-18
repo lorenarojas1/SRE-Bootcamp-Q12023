@@ -1,15 +1,16 @@
-const express = require('express');
+import express from 'express';
+import cookieParser from 'cookie-parser';
+import { init } from './routes';
 
 const app = express();
 const bodyParser = require('body-parser');
-const routes = require('./routes');
-require('./routes/db');
+app.use(cookieParser());
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-routes.init(app);
+init(app);
 
-module.exports = app;
+export default app;
