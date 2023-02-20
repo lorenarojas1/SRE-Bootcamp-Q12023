@@ -1,6 +1,5 @@
 import { loginFunction } from '../services/login';
 import { protectFunction } from '../services/protected';
-import app from '../server';
 //jest.mock('../db/db');
 // const { findUserByUsername } = require('../db/db');
 
