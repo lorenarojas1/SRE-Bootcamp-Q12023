@@ -3,8 +3,8 @@ import { protectFunction } from '../services/protected';
 //jest.mock('../db/db');
 // const { findUserByUsername } = require('../db/db');
 
-describe('loginFunction()', () => {
-  it('Test login', async () => {
+describe('login', () => {
+  it('Should return JWT token to a valid login', async () => {
     // findUserByUsername.mockImplementation(() => Promise.resolve({}));
     const result = await loginFunction('admin', 'secret');
     expect(

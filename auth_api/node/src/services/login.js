@@ -15,7 +15,7 @@ export const loginFunction = (username, password) => {
 
         if (generatedHash === user.password) {
           const { role } = user;
-          const token = jwt.sign({ role }, config.JWT_SECRET, {});
+          const token = jwt.sign({ role }, config.JWT_SECRET, { noTimestamp: true });
           ok({ token });
         }
       })
